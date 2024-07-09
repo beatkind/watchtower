@@ -585,13 +585,13 @@
 
   <h1>Usage overview</h1>
 
-<p>Watchtower is itself packaged as a Docker container so installation is as simple as pulling the <code>containrrr/watchtower</code> image. If you are using ARM based architecture, pull the appropriate <code>containrrr/watchtower:armhf-&lt;tag&gt;</code> image from the <a href="https://hub.docker.com/r/containrrr/watchtower/tags/">containrrr Docker Hub</a>.</p>
+<p>Watchtower is itself packaged as a Docker container so installation is as simple as pulling the <code>beatkind/watchtower</code> image. If you are using ARM based architecture, pull the appropriate <code>beatkind/watchtower:armhf-&lt;tag&gt;</code> image from the <a href="https://hub.docker.com/r/beatkind/watchtower/tags/">beatkind Docker Hub</a>.</p>
 <p>Since the watchtower code needs to interact with the Docker API in order to monitor the running containers, you need to mount <em>/var/run/docker.sock</em> into the container with the <code>-v</code> flag when you run it.</p>
 <p>Run the <code>watchtower</code> container with the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>watchtower<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <p>If pulling images from private Docker registries, supply registry authentication credentials with the environment variables <code>REPO_USER</code> and <code>REPO_PASS</code>
 or by mounting the host's docker config file into the container (at the root of the container filesystem <code>/</code>).</p>
@@ -601,7 +601,7 @@ or by mounting the host's docker config file into the container (at the root of 
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">REPO_USER</span><span class="o">=</span>username<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">REPO_PASS</span><span class="o">=</span>password<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower<span class="w"> </span>container_to_watch<span class="w"> </span>--debug
+<span class="w">  </span>beatkind/watchtower<span class="w"> </span>container_to_watch<span class="w"> </span>--debug
 </code></pre></div>
 <p>Also check out <a href="https://stackoverflow.com/a/30494145/7872793">this Stack Overflow answer</a> for more options on how to pass environment variables.</p>
 <p>Alternatively if you 2FA authentication setup on Docker Hub then passing username and password will be insufficient.  Instead you can run <code>docker login</code> to store your credentials in <code>$HOME/.docker/config.json</code> and then mount this config file to make it available to the Watchtower container:</p>
@@ -609,7 +609,7 @@ or by mounting the host's docker config file into the container (at the root of 
 <span class="w">  </span>--name<span class="w"> </span>watchtower<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="nv">$HOME</span>/.docker/config.json:/config.json<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower<span class="w"> </span>container_to_watch<span class="w"> </span>--debug
+<span class="w">  </span>beatkind/watchtower<span class="w"> </span>container_to_watch<span class="w"> </span>--debug
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Changes to config.json while running</p>
@@ -633,7 +633,7 @@ to 30s rather than the default 24 hours.</p>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:3443&quot;</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:3080&quot;</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/root/.docker/config.json:/config.json</span>

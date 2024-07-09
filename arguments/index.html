@@ -1329,7 +1329,7 @@ launching watchtower.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--name<span class="w"> </span>watchtower<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>containrrr/watchtower<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>beatkind/watchtower<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>nginx<span class="w"> </span>redis
 </code></pre></div>
 <p>In the example above, watchtower will only monitor the containers named "nginx" and "redis" for updates -- all of the other
@@ -1337,7 +1337,7 @@ running containers will be ignored. If you do not want watchtower to run as a da
 the watchtower container after its execution.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>containrrr/watchtower<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>beatkind/watchtower<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--run-once<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>nginx<span class="w"> </span>redis
 </code></pre></div>
@@ -1503,7 +1503,7 @@ Environment Variable: WATCHTOWER_DISABLE_CONTAINERS
 </code></pre></div>
 <h2 id="without_updating_containers">Without updating containers<a class="headerlink" href="#without_updating_containers" title="Permanent link">&para;</a></h2>
 <p>Will only monitor for new images, send notifications and invoke
-the <a href="https://containrrr.dev/watchtower/lifecycle-hooks/">pre-check/post-check hooks</a>, but will <strong>not</strong> update the
+the <a href="https://watchtower.devcdn.nelifecycle-hooks/">pre-check/post-check hooks</a>, but will <strong>not</strong> update the
 containers.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1562,7 +1562,7 @@ Environment Variable: WATCHTOWER_RUN_ONCE
 </code></pre></div>
 <h2 id="http_api_mode">HTTP API Mode<a class="headerlink" href="#http_api_mode" title="Permanent link">&para;</a></h2>
 <p>Runs Watchtower in HTTP API mode, only allowing image updates to be triggered by an HTTP request. 
-For details see <a href="https://containrrr.dev/watchtower/http-api-mode">HTTP API</a>.</p>
+For details see <a href="https://watchtower.devcdn.nehttp-api-mode">HTTP API</a>.</p>
 <div class="highlight"><pre><span></span><code>            Argument: --http-api-update
 Environment Variable: WATCHTOWER_HTTP_API_UPDATE
                 Type: Boolean
@@ -1585,7 +1585,7 @@ Environment Variable: WATCHTOWER_HTTP_API_PERIODIC_POLLS
 </code></pre></div>
 <h2 id="filter_by_scope">Filter by scope<a class="headerlink" href="#filter_by_scope" title="Permanent link">&para;</a></h2>
 <p>Update containers that have a <code>com.centurylinklabs.watchtower.scope</code> label set with the same value as the given argument. 
-This enables <a href="https://containrrr.dev/watchtower/running-multiple-instances">running multiple instances</a>.</p>
+This enables <a href="https://watchtower.devcdn.nerunning-multiple-instances">running multiple instances</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Filter by lack of scope</p>
 <p>If you want other instances of watchtower to ignore the scoped containers, set this argument to <code>none</code>.

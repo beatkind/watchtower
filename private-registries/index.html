@@ -795,7 +795,7 @@ or any multi-part <code>domain.name</code> or IP-address with or without a port.
 </div>
 <p>When the watchtower Docker container is started, the created configuration file
 (<code>&lt;PATH&gt;/config.json</code> in this example) needs to be passed to the container:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>&lt;PATH&gt;/config.json:/config.json<span class="w"> </span>containrrr/watchtower
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>&lt;PATH&gt;/config.json:/config.json<span class="w"> </span>beatkind/watchtower
 </code></pre></div>
 <h3 id="share_the_docker_configuration_file">Share the Docker configuration file<a class="headerlink" href="#share_the_docker_configuration_file" title="Permanent link">&para;</a></h3>
 <p>To pull an image from a private registry, <code>docker login</code> needs to be called first, to get access
@@ -803,13 +803,13 @@ to the registry. The provided credentials are stored in a configuration file cal
 This configuration file can be directly used by watchtower. In this case, the creation of an
 additional configuration file is not necessary.</p>
 <p>When the Docker container is started, pass the configuration file to watchtower:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>&lt;PATH_TO_HOME_DIR&gt;/.docker/config.json:/config.json<span class="w"> </span>containrrr/watchtower
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>&lt;PATH_TO_HOME_DIR&gt;/.docker/config.json:/config.json<span class="w"> </span>beatkind/watchtower
 </code></pre></div>
 <p>When creating the watchtower container via docker-compose, use the following lines:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.4&quot;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower:latest</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower:latest</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PATH_TO_HOME_DIR&gt;/.docker/config.json:/config.json</span>
@@ -822,7 +822,7 @@ Example usage:</p>
 
 <span class="nt">services</span><span class="p">:</span><span class="w"> </span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">DOCKER_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/config</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
@@ -895,7 +895,7 @@ docker<span class="w"> </span>run<span class="w">  </span>-d<span class="w"> </s
 <span class="w"> </span><span class="c1"># Check for new images and restart things if a new image exists</span>
 <span class="w"> </span><span class="c1"># for any of our containers.</span>
 <span class="w"> </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower:latest</span>
+<span class="w">   </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower:latest</span>
 <span class="w">   </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.docker/config.json:/config.json</span>

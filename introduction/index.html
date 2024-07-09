@@ -591,7 +591,7 @@
 <div class="highlight"><pre><span></span><code>$ docker ps
 CONTAINER ID   IMAGE                   STATUS          PORTS                    NAMES
 967848166a45   centurylink/wetty-cli   Up 10 minutes   0.0.0.0:8080-&gt;3000/tcp   wetty
-6cc4d2a9d1a5   containrrr/watchtower   Up 15 minutes                            watchtower
+6cc4d2a9d1a5   beatkind/watchtower   Up 15 minutes                            watchtower
 </code></pre></div>
 <p>Every day watchtower will pull the latest <em>centurylink/wetty-cli</em> image and compare it to the one that was used to run the "wetty" container. If it sees that the image has changed it will stop/remove the "wetty" container and then restart it using the new image and the same <code>docker run</code> options that were used to start the container initially (in this case, that would include the <code>-p 8080:3000</code> port mapping).</p>
 

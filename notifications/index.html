@@ -841,7 +841,7 @@ quotes (<code>"</code>). This prevents unexpected errors when watchtower starts.
 <li><code>--notifications-level</code> (env. <code>WATCHTOWER_NOTIFICATIONS_LEVEL</code>): Controls the log level which is used for the notifications. If omitted, the default log level is <code>info</code>. Possible values are: <code>panic</code>, <code>fatal</code>, <code>error</code>, <code>warn</code>, <code>info</code>, <code>debug</code> or <code>trace</code>.</li>
 <li><code>--notifications-hostname</code> (env. <code>WATCHTOWER_NOTIFICATIONS_HOSTNAME</code>): Custom hostname specified in subject/title. Useful to override the operating system hostname.</li>
 <li><code>--notifications-delay</code> (env. <code>WATCHTOWER_NOTIFICATIONS_DELAY</code>): Delay before sending notifications expressed in seconds.</li>
-<li>Watchtower will post a notification every time it is started. This behavior <a href="https://containrrr.github.io/watchtower/arguments/#without_sending_a_startup_message">can be changed</a> with an argument.</li>
+<li>Watchtower will post a notification every time it is started. This behavior <a href="https://watchtower.devcdn.net/arguments/#without_sending_a_startup_message">can be changed</a> with an argument.</li>
 <li><code>--notification-title-tag</code> (env. <code>WATCHTOWER_NOTIFICATION_TITLE_TAG</code>): Prefix to include in the title. Useful when running multiple watchtowers.</li>
 <li><code>--notification-skip-title</code> (env. <code>WATCHTOWER_NOTIFICATION_SKIP_TITLE</code>): Do not pass the title param to notifications. This will not pass a dynamic title override to notification services. If no title is configured for the service, it will remove the title all together.</li>
 <li><code>--notification-log-stdout</code> (env. <code>WATCHTOWER_NOTIFICATION_LOG_STDOUT</code>): Enable output from <code>logger://</code> shoutrrr service to stdout.</li>
@@ -884,7 +884,7 @@ i.e., The day of the year has to be 1, the month has to be 2 (february), the hou
 <span class="w">  </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_URL</span><span class="o">=</span><span class="s2">&quot;discord://token@channel slack://watchtower@token-a/token-b/token-c&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_TEMPLATE</span><span class="o">=</span><span class="s2">&quot;{{range .}}{{.Time.Format \&quot;2006-01-02 15:04:05\&quot;}} ({{.Level}}): {{.Message}}{{println}}{{end}}&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <h2 id="report_templates">Report templates<a class="headerlink" href="#report_templates" title="Permanent link">&para;</a></h2>
 <p>The default template for report notifications are the following:
@@ -947,14 +947,14 @@ be sent. This is by default used to limit the notifications to only be sent when
 <span class="s2">    {{range .Entries -}}{{.Message}}{{\&quot;\n\&quot;}}{{- end -}}</span>
 <span class="s2">  {{- end -}}</span>
 <span class="s2">  &quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1006,7 +1006,7 @@ The types of notifications to send are set by passing a comma-separated list of 
 -v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
 -e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATIONS</span><span class="o">=</span>slack<span class="w"> </span><span class="se">\</span>
 -e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL</span><span class="o">=</span><span class="s2">&quot;https://hooks.slack.com/services/xxx/yyyyyyyyyyyyyyy&quot;</span><span class="w"> </span><span class="se">\</span>
-containrrr/watchtower<span class="w"> </span><span class="se">\</span>
+beatkind/watchtower<span class="w"> </span><span class="se">\</span>
 notify-upgrade
 </code></pre></div>
 </div>
@@ -1014,7 +1014,7 @@ notify-upgrade
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">    </span><span class="nt">env</span><span class="p">:</span>
@@ -1033,14 +1033,14 @@ notify-upgrade
 --name<span class="w"> </span>watchtower<span class="w"> </span><span class="se">\</span>
 -v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
 --env-file<span class="w"> </span>watchtower-notifications.env<span class="w"> </span><span class="se">\</span>
-containrrr/watchtower
+beatkind/watchtower
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
 <span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
@@ -1074,7 +1074,7 @@ containrrr/watchtower
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER</span><span class="o">=</span>fromaddress@gmail.com<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD</span><span class="o">=</span>app_password<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_EMAIL_DELAY</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <p>The previous example assumes, that you already have an SMTP server up and running you can connect to. If you don't or you want to bring up watchtower with your own simple SMTP relay the following <code>docker-compose.yml</code> might be a good start for you.</p>
 <p>The following example assumes, that your domain is called <code>your-domain.com</code> and that you are going to use a certificate valid for <code>smtp.your-domain.com</code>. This hostname has to be used as <code>WATCHTOWER_NOTIFICATION_EMAIL_SERVER</code> otherwise the TLS connection is going to fail with <code>Failed to send notification email</code> or <code>connect: connection refused</code>. We also have to add a network for this setup in order to add an alias to it. If you also want to enable DKIM or other features on the SMTP server, you will find more information at <a href="https://hub.docker.com/r/freinet/postfix-relay">freinet/postfix-relay</a>.</p>
@@ -1082,7 +1082,7 @@ containrrr/watchtower
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">containrrr/watchtower:latest</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower:latest</span>
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watchtower</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">WATCHTOWER_MONITOR_ONLY</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span>
@@ -1137,7 +1137,7 @@ containrrr/watchtower
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL</span><span class="o">=</span><span class="s2">&quot;https://hooks.slack.com/services/xxx/yyyyyyyyyyyyyyy&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER</span><span class="o">=</span>watchtower-server-1<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_SLACK_CHANNEL</span><span class="o">=</span><span class="c1">#my-custom-channel \</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <h3 id="microsoft_teams">Microsoft Teams<a class="headerlink" href="#microsoft_teams" title="Permanent link">&para;</a></h3>
 <p>To receive notifications in MSTeams channel, add <code>msteams</code> to the <code>--notifications</code> option or the <code>WATCHTOWER_NOTIFICATIONS</code> environment variable.</p>
@@ -1150,7 +1150,7 @@ containrrr/watchtower
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATIONS</span><span class="o">=</span>msteams<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_MSTEAMS_HOOK_URL</span><span class="o">=</span><span class="s2">&quot;https://outlook.office.com/webhook/xxxxxxxx@xxxxxxx/IncomingWebhook/yyyyyyyy/zzzzzzzzzz&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_MSTEAMS_USE_LOG_DATA</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <h3 id="gotify">Gotify<a class="headerlink" href="#gotify" title="Permanent link">&para;</a></h3>
 <p>To push a notification to your Gotify instance, register a Gotify app and specify the Gotify URL and app token:</p>
@@ -1160,7 +1160,7 @@ containrrr/watchtower
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATIONS</span><span class="o">=</span>gotify<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_GOTIFY_URL</span><span class="o">=</span><span class="s2">&quot;https://my.gotify.tld/&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN</span><span class="o">=</span><span class="s2">&quot;SuperSecretToken&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>containrrr/watchtower
+<span class="w">  </span>beatkind/watchtower
 </code></pre></div>
 <p><code>-e WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN</code> or <code>--notification-gotify-token</code> can also reference a file, in which case the contents of the file are used.</p>
 <p>If you want to disable TLS verification for the Gotify instance, you can use either <code>-e WATCHTOWER_NOTIFICATION_GOTIFY_TLS_SKIP_VERIFY=true</code> or <code>--notification-gotify-tls-skip-verify</code>.</p>
