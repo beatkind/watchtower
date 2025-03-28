@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -841,11 +841,11 @@
 
 <h1 id="notifications">Notifications<a class="headerlink" href="#notifications" title="Permanent link">&para;</a></h1>
 <p>Watchtower can send notifications when containers are updated. Notifications are sent via hooks in the logging
-system, <a href="http://github.com/sirupsen/logrus">logrus</a>. </p>
+system, <a href="http://github.com/sirupsen/logrus">logrus</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Using multiple notifications with environment variables</p>
 <p>There is currently a bug in Viper (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/spf13/viper/issues/380" title="GitHub Issue: spf13/viper #380">spf13/viper#380</a>), which prevents comma-separated slices to
-be used when using the environment variable.<br />
+be used when using the environment variable.
 A workaround is available where we instead put quotes around the environment variable value and replace the commas with
 spaces:
 <div class="highlight"><pre><span></span><code>WATCHTOWER_NOTIFICATIONS=&quot;slack msteams&quot;
@@ -888,7 +888,7 @@ outputs timestamp and log level.</p>
 <p class="admonition-title">Custom date format</p>
 <p>If you want to adjust the date/time format it must show how the
 <a href="https://golang.org/pkg/time/#pkg-constants">reference time</a> (<em>Mon Jan 2 15:04:05 MST 2006</em>) would be displayed in your
-custom format.<br />
+custom format.
 i.e., The day of the year has to be 1, the month has to be 2 (february), the hour 3 (or 15 for 24h time) etc.</p>
 </div>
 <div class="admonition note">
@@ -1004,7 +1004,7 @@ be sent. This is by default used to limit the notifications to only be sent when
 </div>
 </div>
 <h2 id="legacy_notifications">Legacy notifications<a class="headerlink" href="#legacy_notifications" title="Permanent link">&para;</a></h2>
-<p>For backwards compatibility, the notifications can also be configured using legacy notification options. These will automatically be converted to shoutrrr URLs when used.<br />
+<p>For backwards compatibility, the notifications can also be configured using legacy notification options. These will automatically be converted to shoutrrr URLs when used.
 The types of notifications to send are set by passing a comma-separated list of values to the <code>--notifications</code> option
 (or corresponding environment variable <code>WATCHTOWER_NOTIFICATIONS</code>), which has the following valid values:</p>
 <ul>
@@ -1070,6 +1070,7 @@ beatkind/watchtower
 <p>To receive notifications by email, the following command-line options, or their corresponding environment variables, can be set:</p>
 <ul>
 <li><code>--notification-email-from</code> (env. <code>WATCHTOWER_NOTIFICATION_EMAIL_FROM</code>): The e-mail address from which notifications will be sent.</li>
+<li><code>--notification-email-from-name</code> (env. <code>WATCHTOWER_NOTIFICATION_EMAIL_FROM_NAME</code>): The name from which notifications will be sent.</li>
 <li><code>--notification-email-to</code> (env. <code>WATCHTOWER_NOTIFICATION_EMAIL_TO</code>): The e-mail address to which notifications will be sent.</li>
 <li><code>--notification-email-server</code> (env. <code>WATCHTOWER_NOTIFICATION_EMAIL_SERVER</code>): The SMTP server to send e-mails through.</li>
 <li><code>--notification-email-server-tls-skip-verify</code> (env. <code>WATCHTOWER_NOTIFICATION_EMAIL_SERVER_TLS_SKIP_VERIFY</code>): Do not verify the TLS certificate of the mail server. This should be used only for testing.</li>
@@ -1230,7 +1231,7 @@ beatkind/watchtower
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
