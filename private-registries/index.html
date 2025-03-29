@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/private-registries/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/private-registries/">
       
       
         <link rel="prev" href="../container-selection/">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create_the_configuration_file_manually" class="md-skip">
+        <a href="#private_registries" class="md-skip">
           Skip to content
         </a>
       
@@ -385,6 +385,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -414,6 +416,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -672,6 +676,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -755,18 +761,17 @@
   
 
 
-  <h1>Private registries</h1>
-
+<h1 id="private_registries">Private Registries<a class="headerlink" href="#private_registries" title="Permanent link">&para;</a></h1>
 <p>Watchtower supports private Docker image registries. In many cases, accessing a private registry
 requires a valid username and password (i.e., <em>credentials</em>). In order to operate in such an
-environment, watchtower needs to know the credentials to access the registry. </p>
+environment, watchtower needs to know the credentials to access the registry.</p>
 <p>The credentials can be provided to watchtower in a configuration file called <code>config.json</code>.
 There are two ways to generate this configuration file:</p>
 <ul>
 <li>The configuration file can be created manually.</li>
 <li>Call <code>docker login &lt;REGISTRY_NAME&gt;</code> and share the resulting configuration file.</li>
 </ul>
-<h3 id="create_the_configuration_file_manually">Create the configuration file manually<a class="headerlink" href="#create_the_configuration_file_manually" title="Permanent link">&para;</a></h3>
+<h2 id="create_the_configuration_file_manually">Create the configuration file manually<a class="headerlink" href="#create_the_configuration_file_manually" title="Permanent link">&para;</a></h2>
 <p>Create a new configuration file with the following syntax and a base64 encoded username and
 password <code>auth</code> string:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -814,7 +819,7 @@ or any multi-part <code>domain.name</code> or IP-address with or without a port.
 (<code>&lt;PATH&gt;/config.json</code> in this example) needs to be passed to the container:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>...<span class="o">]</span><span class="w"> </span>-v<span class="w"> </span>&lt;PATH&gt;/config.json:/config.json<span class="w"> </span>beatkind/watchtower
 </code></pre></div>
-<h3 id="share_the_docker_configuration_file">Share the Docker configuration file<a class="headerlink" href="#share_the_docker_configuration_file" title="Permanent link">&para;</a></h3>
+<h2 id="share_the_docker_configuration_file">Share the Docker configuration file<a class="headerlink" href="#share_the_docker_configuration_file" title="Permanent link">&para;</a></h2>
 <p>To pull an image from a private registry, <code>docker login</code> needs to be called first, to get access
 to the registry. The provided credentials are stored in a configuration file called <code>&lt;PATH_TO_HOME_DIR&gt;/.docker/config.json</code>.
 This configuration file can be directly used by watchtower. In this case, the creation of an
@@ -832,12 +837,12 @@ additional configuration file is not necessary.</p>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PATH_TO_HOME_DIR&gt;/.docker/config.json:/config.json</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
-<h4 id="docker_config_path">Docker Config path<a class="headerlink" href="#docker_config_path" title="Permanent link">&para;</a></h4>
+<h3 id="docker_config_path">Docker Config path<a class="headerlink" href="#docker_config_path" title="Permanent link">&para;</a></h3>
 <p>By default, watchtower will look for the <code>config.json</code> file in <code>/</code>, but this can be changed by setting the <code>DOCKER_CONFIG</code> environment variable to the directory path where your config is located. This is useful for setups where the config.json file is changed while the watchtower instance is running, as the changes will not be picked up for a mounted file if the inode changes.
 Example usage:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.4&quot;</span>
 
-<span class="nt">services</span><span class="p">:</span><span class="w"> </span>
+<span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">watchtower</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
@@ -878,7 +883,7 @@ in a volume that may be mounted onto your watchtower container.</p>
 <li>
 <p>Use the following commands to build the aws-ecr-dock-cred-helper and store it's output in a volume:
     <div class="highlight"><pre><span></span><code><span class="c1"># Create a volume to store the command (once built)</span>
-docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>helper<span class="w"> </span>
+docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>helper
 
 <span class="c1"># Build the container</span>
 docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>aws-ecr-dock-cred-helper<span class="w"> </span>.
@@ -922,7 +927,7 @@ docker<span class="w"> </span>run<span class="w">  </span>-d<span class="w"> </s
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH=$PATH:/go/bin</span>
 <span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS_REGION=us-west-1</span>
 <span class="nt">volumes</span><span class="p">:</span>
-<span class="w"> </span><span class="nt">helper</span><span class="p">:</span><span class="w"> </span>
+<span class="w"> </span><span class="nt">helper</span><span class="p">:</span>
 <span class="w">   </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div></p>
 </li>
@@ -930,19 +935,19 @@ docker<span class="w"> </span>run<span class="w">  </span>-d<span class="w"> </s
 <p>A few additional notes:</p>
 <ol>
 <li>
-<p>With docker-compose the volume (helper, in this case) MUST be set to <code>external: true</code>, otherwise docker-compose 
+<p>With docker-compose the volume (helper, in this case) MUST be set to <code>external: true</code>, otherwise docker-compose
     will preface it with the directory name.</p>
 </li>
 <li>
-<p>Note that "credsStore" : "ecr-login" is needed - and in theory if you have that you can remove the 
+<p>Note that "credsStore" : "ecr-login" is needed - and in theory if you have that you can remove the
     credHelpers section</p>
 </li>
 <li>
-<p>I have this running on an EC2 instance that has credentials assigned to it - so no keys are needed; however, 
+<p>I have this running on an EC2 instance that has credentials assigned to it - so no keys are needed; however,
     you may need to include the <code>AWS_ACCESS_KEY_ID</code> and <code>AWS_SECRET_ACCESS_KEY</code> environment variables as well.</p>
 </li>
 <li>
-<p>An alternative to adding the various variables is to create a ~/.aws/config and ~/.aws/credentials files and 
+<p>An alternative to adding the various variables is to create a ~/.aws/config and ~/.aws/credentials files and
     place the settings there, then mount the ~/.aws directory to / in the container.</p>
 </li>
 </ol>

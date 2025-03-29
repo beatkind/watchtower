@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/stop-signals/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/stop-signals/">
       
       
         <link rel="prev" href="../secure-connections/">
@@ -74,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#stop_signals" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -464,6 +469,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -581,6 +588,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -599,8 +608,7 @@
   
 
 
-  <h1>Stop signals</h1>
-
+<h1 id="stop_signals">Stop signals<a class="headerlink" href="#stop_signals" title="Permanent link">&para;</a></h1>
 <p>When watchtower detects that a running container needs to be updated it will stop the container by sending it a SIGTERM signal.
 If your container should be shutdown with a different signal you can communicate this to watchtower by setting a label named <em>com.centurylinklabs.watchtower.stop-signal</em> with the value of the desired signal.</p>
 <p>This label can be coded directly into your image by using the <code>LABEL</code> instruction in your Dockerfile:</p>

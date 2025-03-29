@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/container-selection/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/container-selection/">
       
       
         <link rel="prev" href="../notifications/">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#full_exclude" class="md-skip">
+        <a href="#container_selection" class="md-skip">
           Skip to content
         </a>
       
@@ -364,6 +364,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -393,6 +395,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -633,6 +637,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -677,8 +683,7 @@
   
 
 
-  <h1>Container selection</h1>
-
+<h1 id="container_selection">Container Selection<a class="headerlink" href="#container_selection" title="Permanent link">&para;</a></h1>
 <p>By default, watchtower will watch all containers. However, sometimes only some containers should be updated.</p>
 <p>There are two options:</p>
 <ul>
@@ -698,8 +703,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">someimage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someimage</span>
 <span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
@@ -720,8 +724,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">someimage</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someimage</span>
 <span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
@@ -744,7 +747,7 @@
 <p>Or, it can be specified as part of the <code>docker run</code> command line:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--label<span class="o">=</span>com.centurylinklabs.watchtower.monitor-only<span class="o">=</span><span class="nb">true</span><span class="w"> </span>someimage
 </code></pre></div>
-<p>When the label is specified on a container, watchtower treats that container exactly as if <a href="https://watchtower.devcdn.net/arguments/#without_updating_containers"><code>WATCHTOWER_MONITOR_ONLY</code></a> was set, but the effect is limited to the individual container. </p>
+<p>When the label is specified on a container, watchtower treats that container exactly as if <a href="https://watchtower.devcdn.net/arguments/#without_updating_containers"><code>WATCHTOWER_MONITOR_ONLY</code></a> was set, but the effect is limited to the individual container.</p>
 
 
 

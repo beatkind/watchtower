@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/remote-hosts/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/remote-hosts/">
       
       
         <link rel="prev" href="../linked-containers/">
@@ -74,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#remote_docker_hosts" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -422,6 +427,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -581,6 +588,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -599,8 +608,7 @@
   
 
 
-  <h1>Remote hosts</h1>
-
+<h1 id="remote_docker_hosts">Remote Docker Hosts<a class="headerlink" href="#remote_docker_hosts" title="Permanent link">&para;</a></h1>
 <p>By default, watchtower is set-up to monitor the local Docker daemon (the same daemon running the watchtower container itself). However, it is possible to configure watchtower to monitor a remote Docker endpoint. When starting the watchtower container you can specify a remote Docker endpoint with either the <code>--host</code> flag or the <code>DOCKER_HOST</code> environment variable:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>watchtower<span class="w"> </span><span class="se">\</span>

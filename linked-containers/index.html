@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/linked-containers/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/linked-containers/">
       
       
         <link rel="prev" href="../private-registries/">
@@ -74,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#linked_containers" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -401,6 +406,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -581,6 +588,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -599,8 +608,7 @@
   
 
 
-  <h1>Linked containers</h1>
-
+<h1 id="linked_containers">Linked Containers<a class="headerlink" href="#linked_containers" title="Permanent link">&para;</a></h1>
 <p>Watchtower will detect if there are links between any of the running containers and ensures that things are stopped/started in a way that won't break any of the links. If an update is detected for one of the dependencies in a group of linked containers, watchtower will stop and start all of the containers in the correct order so that the application comes back up correctly.</p>
 <p>For example, imagine you were running a <em>mysql</em> container and a <em>wordpress</em> container which had been linked to the <em>mysql</em> container. If watchtower were to detect that the <em>mysql</em> container required an update, it would first shut down the linked <em>wordpress</em> container followed by the <em>mysql</em> container. When restarting the containers it would handle <em>mysql</em> first and then <em>wordpress</em> to ensure that the link continued to work.</p>
 <p>If you want to override existing links, or if you are not using links, you can use special <code>com.centurylinklabs.watchtower.depends-on</code> label with dependent container names, separated by a comma.</p>

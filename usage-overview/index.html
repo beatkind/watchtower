@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/usage-overview/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/usage-overview/">
       
       
         <link rel="prev" href="../introduction/">
@@ -74,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#usage" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -295,6 +300,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
@@ -581,6 +588,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -599,8 +608,7 @@
   
 
 
-  <h1>Usage overview</h1>
-
+<h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
 <p>Watchtower is itself packaged as a Docker container so installation is as simple as pulling the <code>beatkind/watchtower</code> image. If you are using ARM based architecture, pull the appropriate <code>beatkind/watchtower:armhf-&lt;tag&gt;</code> image from the <a href="https://hub.docker.com/r/beatkind/watchtower/tags/">beatkind Docker Hub</a>.</p>
 <p>Since the watchtower code needs to interact with the Docker API in order to monitor the running containers, you need to mount <em>/var/run/docker.sock</em> into the container with the <code>-v</code> flag when you run it.</p>
 <p>Run the <code>watchtower</code> container with the following command:</p>
@@ -632,8 +640,8 @@ or by mounting the host's docker config file into the container (at the root of 
 <p>If you mount <code>config.json</code> in the manner above, changes from the host system will (generally) not be propagated to the
 running container. Mounting files into the Docker daemon uses bind mounts, which are based on inodes. Most
 applications (including <code>docker login</code> and <code>vim</code>) will not directly edit the file, but instead make a copy and replace
-the original file, which results in a new inode which in turn <em>breaks</em> the bind mount.<br />
-<strong>As a workaround</strong>, you can create a symlink to your <code>config.json</code> file and then mount the symlink in the container. 
+the original file, which results in a new inode which in turn <em>breaks</em> the bind mount.
+<strong>As a workaround</strong>, you can create a symlink to your <code>config.json</code> file and then mount the symlink in the container.
 The symlinked file will always have the same inode, which keeps the bind mount intact and will ensure changes
 to the original file are propagated to the running container (regardless of the inode of the source file!).</p>
 </div>
@@ -641,8 +649,7 @@ to the original file are propagated to the running container (regardless of the 
 watched image (you can omit the https://). Here is a complete docker-compose.yml file that starts up a docker container
 from a private repo on the GitHub Registry and monitors it with watchtower. Note the command argument changing the interval
 to 30s rather than the default 24 hours.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">cavo</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/&lt;org&gt;/&lt;image&gt;:&lt;tag&gt;</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>

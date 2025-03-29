@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/running-multiple-instances/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/running-multiple-instances/">
       
       
         <link rel="prev" href="../lifecycle-hooks/">
@@ -601,7 +601,7 @@
 
   <h1>Running multiple instances</h1>
 
-<p>By default, Watchtower will clean up other instances and won't allow multiple instances running on the same Docker host or swarm. It is possible to override this behavior by defining a <a href="https://watchtower.devcdn.net/arguments/#filter_by_scope">scope</a> to each running instance. </p>
+<p>By default, Watchtower will clean up other instances and won't allow multiple instances running on the same Docker host or swarm. It is possible to override this behavior by defining a <a href="https://watchtower.devcdn.net/arguments/#filter_by_scope">scope</a> to each running instance.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -612,9 +612,7 @@
 </div>
 <p>To define an instance monitoring scope, use the <code>--scope</code> argument or the <code>WATCHTOWER_SCOPE</code> environment variable on startup and set the <code>com.centurylinklabs.watchtower.scope</code> label with the same value for the containers you want to include in this instance's scope (including the instance itself).</p>
 <p>For example, in a Docker Compose config file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
-
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app-with-scope</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapps/monitored-by-watchtower</span>
 <span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.scope=myscope&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
@@ -623,7 +621,7 @@
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">beatkind/watchtower</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--interval 30 --scope myscope</span>
-<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.scope=myscope&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.scope=myscope&quot;</span><span class="w"> </span><span class="p p-Indicator">]</span>
 
 <span class="w">  </span><span class="nt">unscoped-app-a</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapps/app-a</span>

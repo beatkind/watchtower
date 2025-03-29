@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/arguments/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/arguments/">
       
       
         <link rel="prev" href="../usage-overview/">
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#secretsfiles" class="md-skip">
+        <a href="#arguments" class="md-skip">
           Skip to content
         </a>
       
@@ -322,6 +322,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -351,6 +353,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -963,6 +967,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1337,8 +1343,7 @@
   
 
 
-  <h1>Arguments</h1>
-
+<h1 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">&para;</a></h1>
 <p>By default, watchtower will monitor all containers running within the Docker daemon to which it is pointed (in most cases this
 will be the local Docker daemon, but you can override it with the <code>--host</code> option described in the next section). However, you
 can restrict watchtower to monitoring a subset of the running containers by specifying the container names as arguments when
@@ -1363,13 +1368,15 @@ the watchtower container after its execution.</p>
 <h2 id="secretsfiles">Secrets/Files<a class="headerlink" href="#secretsfiles" title="Permanent link">&para;</a></h2>
 <p>Some arguments can also reference a file, in which case the contents of the file are used as the value.
 This can be used to avoid putting secrets in the configuration file or command line.</p>
-<p>The following arguments are currently supported (including their corresponding <code>WATCHTOWER_</code> environment variables):
- - <code>notification-url</code>
- - <code>notification-email-server-password</code>
- - <code>notification-slack-hook-url</code>
- - <code>notification-msteams-hook</code>
- - <code>notification-gotify-token</code>
- - <code>http-api-token</code></p>
+<p>The following arguments are currently supported (including their corresponding <code>WATCHTOWER_</code> environment variables):</p>
+<ul>
+<li><code>notification-url</code></li>
+<li><code>notification-email-server-password</code></li>
+<li><code>notification-slack-hook-url</code></li>
+<li><code>notification-msteams-hook</code></li>
+<li><code>notification-gotify-token</code></li>
+<li><code>http-api-token</code></li>
+</ul>
 <h3 id="example_docker-compose_usage">Example docker-compose usage<a class="headerlink" href="#example_docker-compose_usage" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">secrets</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">access_token</span><span class="p">:</span>
@@ -1544,12 +1551,12 @@ Environment Variable: WATCHTOWER_LABEL_TAKE_PRECEDENCE
 </code></pre></div>
 <h2 id="without_restarting_containers">Without restarting containers<a class="headerlink" href="#without_restarting_containers" title="Permanent link">&para;</a></h2>
 <p>Do not restart containers after updating. This option can be useful when the start of the containers
-is managed by an external system such as systemd.
+is managed by an external system such as systemd.</p>
 <div class="highlight"><pre><span></span><code>            Argument: --no-restart
 Environment Variable: WATCHTOWER_NO_RESTART
                 Type: Boolean
              Default: false
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="without_pulling_new_images">Without pulling new images<a class="headerlink" href="#without_pulling_new_images" title="Permanent link">&para;</a></h2>
 <p>Do not pull new images. When this flag is specified, watchtower will not attempt to pull
 new images from the registry. Instead it will only monitor the local image cache for changes.
@@ -1670,10 +1677,10 @@ Environment Variable: WATCHTOWER_WARN_ON_HEAD_FAILURE
 <h2 id="programatic_output_porcelain">Programatic Output (porcelain)<a class="headerlink" href="#programatic_output_porcelain" title="Permanent link">&para;</a></h2>
 <p>Writes the session results to STDOUT using a stable, machine-readable format (indicated by the argument VERSION).</p>
 <p>Alias for:</p>
-<div class="highlight"><pre><span></span><code>        --notification-url logger://
-        --notification-log-stdout
-        --notification-report
-        --notification-template porcelain.VERSION.summary-no-log
+<div class="highlight"><pre><span></span><code>--notification-url logger://
+--notification-log-stdout
+--notification-report
+--notification-template porcelain.VERSION.summary-no-log
 
             Argument: --porcelain, -P
 Environment Variable: WATCHTOWER_PORCELAIN

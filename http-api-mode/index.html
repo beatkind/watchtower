@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/http-api-mode/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/http-api-mode/">
       
       
         <link rel="prev" href="../running-multiple-instances/">
@@ -74,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#http_api_mode" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -527,6 +532,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -581,6 +588,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -599,17 +608,14 @@
   
 
 
-  <h1>HTTP API Mode</h1>
-
+<h1 id="http_api_mode">HTTP API Mode<a class="headerlink" href="#http_api_mode" title="Permanent link">&para;</a></h1>
 <p>Watchtower provides an HTTP API mode that enables an HTTP endpoint that can be requested to trigger container updating. The current available endpoint list is:</p>
 <ul>
 <li><code>/v1/update</code> - triggers an update for all of the containers monitored by this Watchtower instance.</li>
 </ul>
 <hr />
 <p>To enable this mode, use the flag <code>--http-api-update</code>. For example, in a Docker Compose config file:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
-
-<span class="nt">services</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">app-monitored-by-watchtower</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myapps/monitored-by-watchtower</span>
 <span class="w">    </span><span class="nt">labels</span><span class="p">:</span>

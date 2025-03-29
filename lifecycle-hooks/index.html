@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://containrrr.dev/watchtower/lifecycle-hooks/">
+        <link rel="canonical" href="https://watchtower.devcdn.net/lifecycle-hooks/">
       
       
         <link rel="prev" href="../stop-signals/">
@@ -490,6 +490,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -520,6 +522,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -528,16 +532,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#executing_commands_before_and_after_updating" class="md-nav__link">
-    <span class="md-ellipsis">
-      Executing commands before and after updating
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executing commands before and after updating">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#specifying_update_commands" class="md-nav__link">
     <span class="md-ellipsis">
       Specifying update commands
@@ -545,8 +539,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#timeouts" class="md-nav__link">
     <span class="md-ellipsis">
       Timeouts
@@ -569,18 +563,13 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#execution_failure" class="md-nav__link">
     <span class="md-ellipsis">
       Execution failure
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -672,6 +661,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -680,16 +671,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#executing_commands_before_and_after_updating" class="md-nav__link">
-    <span class="md-ellipsis">
-      Executing commands before and after updating
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Executing commands before and after updating">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#specifying_update_commands" class="md-nav__link">
     <span class="md-ellipsis">
       Specifying update commands
@@ -697,8 +678,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#timeouts" class="md-nav__link">
     <span class="md-ellipsis">
       Timeouts
@@ -721,18 +702,13 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#execution_failure" class="md-nav__link">
     <span class="md-ellipsis">
       Execution failure
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -755,16 +731,14 @@
   
 
 
-  <h1>Lifecycle hooks</h1>
-
-<h2 id="executing_commands_before_and_after_updating">Executing commands before and after updating<a class="headerlink" href="#executing_commands_before_and_after_updating" title="Permanent link">&para;</a></h2>
+<h1 id="executing_commands_before_and_after_updating">Executing commands before and after updating<a class="headerlink" href="#executing_commands_before_and_after_updating" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These are shell commands executed with <code>sh</code>, and therefore require the container to provide the <code>sh</code>
 executable.</p>
 </div>
 <blockquote>
-<p><strong>DO NOTE</strong>: If the container is not running then lifecycle hooks can not run and therefore 
+<p><strong>DO NOTE</strong>: If the container is not running then lifecycle hooks can not run and therefore
 the update is executed without running any lifecycle hooks.</p>
 </blockquote>
 <p>It is possible to execute <em>pre/post-check</em> and <em>pre/post-update</em> commands
@@ -778,7 +752,7 @@ the update is executed without running any lifecycle hooks.</p>
 <p>This feature is disabled by default. To enable it, you need to set the option
 <code>--enable-lifecycle-hooks</code> on the command line, or set the environment variable
 <code>WATCHTOWER_LIFECYCLE_HOOKS</code> to <code>true</code>.</p>
-<h3 id="specifying_update_commands">Specifying update commands<a class="headerlink" href="#specifying_update_commands" title="Permanent link">&para;</a></h3>
+<h2 id="specifying_update_commands">Specifying update commands<a class="headerlink" href="#specifying_update_commands" title="Permanent link">&para;</a></h2>
 <p>The commands are specified using docker container labels, the following are currently available:</p>
 <table>
 <thead>
@@ -827,16 +801,16 @@ someimage<span class="w"> </span>--label<span class="o">=</span>com.centurylinkl
 </div>
 </div>
 </div>
-<h3 id="timeouts">Timeouts<a class="headerlink" href="#timeouts" title="Permanent link">&para;</a></h3>
+<h2 id="timeouts">Timeouts<a class="headerlink" href="#timeouts" title="Permanent link">&para;</a></h2>
 <p>The timeout for all lifecycle commands is 60 seconds. After that, a timeout will
 occur, forcing Watchtower to continue the update loop.</p>
-<h4 id="pre-_or_post-update_timeouts">Pre- or Post-update timeouts<a class="headerlink" href="#pre-_or_post-update_timeouts" title="Permanent link">&para;</a></h4>
+<h3 id="pre-_or_post-update_timeouts">Pre- or Post-update timeouts<a class="headerlink" href="#pre-_or_post-update_timeouts" title="Permanent link">&para;</a></h3>
 <p>For the <code>pre-update</code> or <code>post-update</code> lifecycle command, it is possible to override this timeout to
 allow the script to finish before forcefully killing it. This is done by adding the
 label <code>com.centurylinklabs.watchtower.lifecycle.pre-update-timeout</code> or post-update-timeout respectively followed by
 the timeout expressed in minutes.</p>
-<p>If the label value is explicitly set to <code>0</code>, the timeout will be disabled.  </p>
-<h3 id="execution_failure">Execution failure<a class="headerlink" href="#execution_failure" title="Permanent link">&para;</a></h3>
+<p>If the label value is explicitly set to <code>0</code>, the timeout will be disabled.</p>
+<h2 id="execution_failure">Execution failure<a class="headerlink" href="#execution_failure" title="Permanent link">&para;</a></h2>
 <p>The failure of a command to execute, identified by an exit code different than
 0 or 75 (EX_TEMPFAIL), will not prevent watchtower from updating the container. Only an error
 log statement containing the exit code will be reported.</p>
