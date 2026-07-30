@@ -1,6 +1,6 @@
 services:
   producer:
-    image: qmcgaw/gluetun:v3.40.0
+    image: qmcgaw/gluetun:v3.41.3
     cap_add:
       - NET_ADMIN
     environment:
